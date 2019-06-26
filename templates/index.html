@@ -1,0 +1,114 @@
+<!-- Mission to Mars Site HTML -->
+<!-- http://127.0.0.1:5000/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mars Facts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!-- Bring in our bootstrap stylesheet -->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<!-- Jumbotron Header -->
+<body>
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Mission to Mars</h1>
+        <p class="lead">On this site, you will learn about the Mission to Mars from several different sources.</p>
+        <hr class="my-4">
+        <p>Sources Include: NASA News, Mars Weather Twitter, JPL Spaces Images, USGS Astrogeology, and the Space Facts Site.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a>
+        </p>
+    </div>
+    </div>
+<div>
+    <!-- Latest Mars News -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>Latest Mars News</h3>
+                <h3>{{ mars_data.news_title }}</h3>
+                <p>{{ mars_data.news_paragraph | safe }}</p>
+            </div>
+        </div>
+
+
+        <!-- Featured Mars Image -->
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Featured Mars Image</h3>
+                <!-- <img src="{{mars_data.featured_image_url}}" alt="featured mars image" style="width: 80%;" /> -->
+                <img src="https://www.jpl.nasa.gov/spaceimages/images/mediumsize/PIA17832_ip.jpg" alt="featured mars image" style="width: 80%;">
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Current Weather On Mars</div>
+                        <div class="panel-body">{{mars_data.mars_weather}}</div>
+                    </div>
+                </div>
+                <div>
+                    <!-- Facts Dataframe -->
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Mars Facts</div>
+                            <div class="panel-body">{{mars_data.facts_html | safe}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Mars Hemispheres -->
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <h3 class="panel-title">Mars Hemispheres</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel-body">
+                                <img src="http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/cerberus_enhanced.tif/full.jpg" alt="Cerberus Image" style="width: 100%;">
+                                <figcaption class="figure-caption">Cerberus Hemisphere</figcaption>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel-body">
+                                <img src="http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/schiaparelli_enhanced.tif/full.jpg" alt="Cerberus Image" style="width: 100%;">
+                                <figcaption class="figure-caption">Schiaparelli Hemisphere</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel-body">
+                                <img src="http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/syrtis_major_enhanced.tif/full.jpg" alt="Cerberus Image" style="width: 100%;">
+                                <figcaption class="figure-caption">Syrtis Major Hemisphere</figcaption>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel-body">
+                                <img src="http://astropedia.astrogeology.usgs.gov/download/Mars/Viking/valles_marineris_enhanced.tif/full.jpg" alt="Cerberus Image" style="width: 100%;">
+                                <figcaption class="figure-caption">Valles Marineris Hemisphere</figcaption>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+
